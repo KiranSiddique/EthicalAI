@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EthicAI — Ethical AI & Cybersecurity Awareness</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0ede8;--bg2:#e8e3dc;--bg3:#faf8f5;
+  --ink:#1c1a15;--ink2:#4a4540;--ink3:#7a7268;
+  --teal:#0f7a85;--teal-d:#085c66;--teal-l:#d6f0f3;--teal-m:#a8dde3;
+  --gold:#c8860a;--gold-l:#fdf0d5;--gold-m:#f5cc7a;
+  --green:#2e7d52;--green-l:#d4f0e2;
+  --red-l:#fde8e8;--red:#c0392b;
+  --border:#d8d2c8;
+  --shadow:0 4px 24px rgba(28,26,21,.08);
+  --shadow-lg:0 12px 48px rgba(28,26,21,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--teal-m);border-radius:3px;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;height:60px;
+  background:rgba(240,237,232,.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;
+  color:var(--ink);letter-spacing:-.5px;display:flex;align-items:center;gap:.5rem;
+}
+.ndot{width:10px;height:10px;background:var(--teal);border-radius:50%;animation:ndp 2.5s infinite;}
+@keyframes ndp{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.5;}}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--ink3);font-size:.875rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-btn{
+  background:var(--teal);color:#fff;border:none;
+  padding:.5rem 1.2rem;border-radius:8px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;
+  cursor:pointer;transition:background .2s;text-decoration:none;display:inline-block;
+}
+.nav-btn:hover{background:var(--teal-d);}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;}
+.mob-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:var(--bg3);border-bottom:1px solid var(--border);
+  padding:1rem 2rem;z-index:199;flex-direction:column;gap:.75rem;
+}
+.mob-menu a{text-decoration:none;color:var(--ink);font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border);display:block;}
+.mob-menu.open{display:flex;}
+
+/* HERO */
+.hero{
+  min-height:100vh;padding:60px 2.5rem 60px;
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.h-mesh{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 60% at 75% 35%,rgba(15,122,133,.13) 0%,transparent 65%),
+    radial-gradient(ellipse 45% 55% at 15% 75%,rgba(200,134,10,.1) 0%,transparent 65%),
+    radial-gradient(ellipse 35% 40% at 50% 90%,rgba(46,125,82,.07) 0%,transparent 60%);
+}
+.h-pat{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);
+  background-size:32px 32px;opacity:.5;
+}
+.h-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;position:relative;z-index:1;width:100%;
+}
+.h-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--teal-l);border:1px solid var(--teal-m);
+  border-radius:6px;padding:.35rem .9rem;
+  font-size:.78rem;font-weight:700;color:var(--teal-d);
+  text-transform:uppercase;letter-spacing:1.5px;margin-bottom:1.5rem;
+  animation:fu .6s ease both;
+}
+h1{
+  font-family:'Syne',sans-serif;font-size:clamp(2.6rem,4.5vw,3.8rem);
+  font-weight:800;line-height:1.1;color:var(--ink);letter-spacing:-1px;
+  animation:fu .65s .1s ease both;
+}
+.ac{font-family:'Instrument Serif',serif;font-style:italic;color:var(--teal);}
+.h-desc{
+  margin-top:1.25rem;font-size:1.05rem;color:var(--ink3);
+  line-height:1.75;max-width:500px;animation:fu .65s .2s ease both;
+}
+.h-acts{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;animation:fu .65s .3s ease both;}
+.btn-p{
+  background:var(--teal);color:#fff;border:none;
+  padding:.8rem 1.8rem;border-radius:8px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;
+  cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
+}
+.btn-p:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,122,133,.3);}
+.btn-g{
+  background:transparent;color:var(--ink);border:1.5px solid var(--border);
+  padding:.8rem 1.8rem;border-radius:8px;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:.95rem;
+  cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;
+}
+.btn-g:hover{border-color:var(--teal);color:var(--teal);}
+.h-right{display:flex;flex-direction:column;gap:1rem;animation:fu .7s .2s ease both;}
+.hcard{
+  background:#fff;border:1px solid var(--border);border-radius:14px;
+  padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;
+  box-shadow:var(--shadow);transition:transform .2s;cursor:default;
+}
+.hcard:hover{transform:translateX(4px);}
+.hc-ic{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.it{background:var(--teal-l);}.ig{background:var(--gold-l);}.in{background:var(--green-l);}
+.hc-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);line-height:1;}
+.hc-lbl{font-size:.78rem;color:var(--ink3);margin-top:.15rem;}
+@keyframes fu{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTIONS */
+section{padding:80px 2.5rem;}
+.s-in{max-width:1200px;margin:0 auto;}
+.s-tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--teal);margin-bottom:.6rem;}
+h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;line-height:1.2;color:var(--ink);letter-spacing:-.5px;}
+.s-desc{margin-top:.75rem;font-size:1rem;color:var(--ink3);line-height:1.75;max-width:580px;}
+
+/* HOW TO USE */
+.hw-sec{background:var(--bg3);}
+.hw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.clip{
+  background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;cursor:pointer;
+}
+.clip:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.clip-top{
+  position:relative;height:155px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.g1{background:linear-gradient(135deg,var(--teal-l),var(--teal-m));}
+.g2{background:linear-gradient(135deg,var(--gold-l),var(--gold-m));}
+.g3{background:linear-gradient(135deg,var(--green-l),#86efac);}
+.g4{background:linear-gradient(135deg,#fde8e8,#fca5a5);}
+.g5{background:linear-gradient(135deg,#ede9fe,#c4b5fd);}
+.g6{background:linear-gradient(135deg,#fef3c7,#fcd34d);}
+.play-btn{
+  width:54px;height:54px;background:rgba(255,255,255,.92);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,.15);transition:transform .2s;
+}
+.clip:hover .play-btn{transform:scale(1.1);}
+.play-btn svg{width:22px;height:22px;fill:var(--teal);margin-left:3px;}
+.clip-sn{
+  position:absolute;top:10px;left:12px;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;
+  color:rgba(255,255,255,.55);
+}
+.clip-bd{padding:1.2rem 1.3rem;}
+.clip-bd h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:.4rem;}
+.clip-bd p{font-size:.83rem;color:var(--ink3);line-height:1.65;}
+
+/* MODAL */
+.mo{display:none;position:fixed;inset:0;z-index:500;background:rgba(28,26,21,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+.mo.open{display:flex;}
+.mo-box{background:#fff;border-radius:20px;width:min(680px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;}
+@keyframes mi{from{opacity:0;transform:scale(.95);}to{opacity:1;transform:scale(1);}}
+.mo-head{padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.mo-head h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);}
+.mo-x{width:30px;height:30px;border-radius:7px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.9rem;color:var(--ink3);display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.mo-x:hover{background:var(--bg);}
+.mo-vis{height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:1.5rem;}
+.mo-vis .bi{font-size:3.5rem;}
+.mo-vis p{font-weight:500;font-size:.95rem;text-align:center;max-width:340px;line-height:1.65;}
+.mo-body{padding:1.4rem;}
+.mstep{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.9rem;}
+.mstep:last-child{margin-bottom:0;}
+.msn{width:24px;height:24px;background:var(--teal);color:#fff;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.mst{font-size:.875rem;color:var(--ink3);line-height:1.65;}
+.mst strong{color:var(--ink);}
+
+/* PROBLEM */
+.pb-sec{background:var(--bg2);}
+.pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+.pb-card{background:var(--bg3);border:1px solid var(--border);border-radius:18px;padding:2rem;position:relative;overflow:hidden;transition:box-shadow .2s;}
+.pb-card:hover{box-shadow:var(--shadow-lg);}
+.pb-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.pbc1::after{background:linear-gradient(90deg,var(--teal),var(--teal-m));}
+.pbc2::after{background:linear-gradient(90deg,var(--gold),var(--gold-m));}
+.pb-icon{font-size:2.2rem;margin-bottom:1rem;}
+.pb-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-bottom:.65rem;}
+.pb-card p{font-size:.9rem;color:var(--ink3);line-height:1.75;}
+.pb-pill{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;padding:.38rem .85rem;border-radius:6px;font-size:.78rem;font-weight:600;}
+.pp-t{background:var(--teal-l);color:var(--teal-d);}
+.pp-g{background:var(--gold-l);color:#7a4e08;}
+
+/* CHECKLIST */
+.cl-sec{background:var(--bg3);}
+.cl-lay{display:grid;grid-template-columns:1fr 1.3fr;gap:4rem;margin-top:3rem;align-items:start;}
+.cl-info h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:.5rem;}
+.cl-info p{font-size:.88rem;color:var(--ink3);line-height:1.75;}
+.ptags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
+.ptag{display:inline-flex;align-items:center;padding:.3rem .75rem;border-radius:6px;font-size:.73rem;font-weight:600;}
+.pt{background:var(--teal-l);color:var(--teal-d);}
+.pg{background:var(--gold-l);color:#7a4e08;}
+.pn{background:var(--green-l);color:#166534;}
+.cl-w{background:#fff;border:1px solid var(--border);border-radius:20px;padding:1.75rem;box-shadow:var(--shadow-lg);}
+.cl-wh{display:flex;align-items:center;justify-content:space-between;padding-bottom:.9rem;margin-bottom:.3rem;border-bottom:1px solid var(--border);}
+.cl-wh h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);}
+.cl-rst{font-size:.75rem;color:var(--teal);font-weight:600;cursor:pointer;background:none;border:none;padding:.25rem .5rem;border-radius:4px;transition:background .15s;}
+.cl-rst:hover{background:var(--teal-l);}
+.chi{display:flex;align-items:flex-start;gap:.8rem;padding:.65rem .5rem;border-radius:8px;cursor:pointer;transition:background .15s;border-bottom:1px solid var(--border);}
+.chi:last-of-type{border-bottom:none;}
+.chi:hover{background:var(--bg);}
+.chb{width:18px;height:18px;border-radius:4px;border:2px solid var(--border);flex-shrink:0;margin-top:2px;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.chi.on .chb{background:var(--teal);border-color:var(--teal);}
+.chi.on .chb::after{content:'✓';color:#fff;font-size:.65rem;font-weight:700;}
+.cht{font-size:.865rem;color:var(--ink);line-height:1.55;flex:1;}
+.chi.on .cht{color:var(--ink3);text-decoration:line-through;}
+.rb{flex-shrink:0;font-size:.65rem;font-weight:700;padding:.2rem .5rem;border-radius:4px;margin-top:2px;}
+.rh{background:var(--red-l);color:var(--red);}
+.rm{background:var(--gold-l);color:#7a4e08;}
+.rl{background:var(--green-l);color:#166534;}
+.pw{margin-top:1rem;padding-top:.9rem;border-top:1px solid var(--border);}
+.pm{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink3);margin-bottom:.45rem;}
+.pb-bg{height:7px;background:var(--bg2);border-radius:100px;overflow:hidden;}
+.pb-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--green));border-radius:100px;transition:width .4s ease;width:0%;}
+
+/* RISK */
+.rk-sec{background:var(--bg2);}
+.rk-lay{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;margin-top:3rem;align-items:start;}
+.rk-w{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:var(--shadow-lg);}
+.rk-w h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:.4rem;}
+.rk-w>p{font-size:.875rem;color:var(--ink3);margin-bottom:1.5rem;line-height:1.6;}
+.rql{font-size:.82rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;display:block;}
+.rq{margin-bottom:1.2rem;}
+.rqo{display:flex;gap:.5rem;flex-wrap:wrap;}
+.ro{padding:.38rem .9rem;border-radius:6px;border:1.5px solid var(--border);background:var(--bg);font-size:.8rem;font-weight:500;color:var(--ink3);cursor:pointer;transition:all .15s;}
+.ro:hover{border-color:var(--teal);color:var(--teal);}
+.ro.st{background:var(--teal);border-color:var(--teal);color:#fff;}
+.ro.sg{background:var(--gold);border-color:var(--gold);color:#fff;}
+.ro.sr{background:var(--red);border-color:var(--red);color:#fff;}
+.ro.sn{background:var(--green);border-color:var(--green);color:#fff;}
+.cb{width:100%;margin-top:1.2rem;background:var(--teal);color:#fff;border:none;padding:.8rem;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:background .2s;}
+.cb:hover{background:var(--teal-d);}
+.rr{display:none;margin-top:1.5rem;border-radius:12px;padding:1.25rem;text-align:center;}
+.rr.show{display:block;}
+.rr.low{background:var(--green-l);border:1px solid #86efac;}
+.rr.med{background:var(--gold-l);border:1px solid var(--gold-m);}
+.rr.high{background:var(--red-l);border:1px solid #fca5a5;}
+.rre{font-size:2.2rem;margin-bottom:.4rem;}
+.rrt{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.4rem;}
+.rrd{font-size:.85rem;line-height:1.65;color:var(--ink);}
+.ri-list{display:flex;flex-direction:column;gap:1rem;}
+.ri{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.1rem 1.25rem;display:flex;align-items:flex-start;gap:.85rem;}
+.ri-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ri h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;color:var(--ink);margin-bottom:.3rem;}
+.ri p{font-size:.8rem;color:var(--ink3);line-height:1.65;}
+
+/* PRINCIPLES */
+.pr-sec{background:var(--bg3);}
+.pr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.prc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.prc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.prc::before{content:'';position:absolute;bottom:0;right:0;width:70px;height:70px;border-radius:50%;opacity:.07;transform:translate(20px,20px);}
+.prc.pt::before{background:var(--teal);}
+.prc.pg::before{background:var(--gold);}
+.prc.pn::before{background:var(--green);}
+.pr-ic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.9rem;}
+.pit{background:var(--teal-l);}.pig{background:var(--gold-l);}.pin{background:var(--green-l);}
+.pr-src{font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.4rem;}
+.pr-src a{color:var(--teal);text-decoration:none;}
+.pr-src a:hover{text-decoration:underline;}
+.prc h3{font-family:'Syne',sans-serif;font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.5rem;}
+.prc p{font-size:.82rem;color:var(--ink3);line-height:1.7;}
+.pr-lnk{display:inline-flex;align-items:center;gap:.3rem;margin-top:.85rem;font-size:.77rem;font-weight:600;color:var(--teal);text-decoration:none;transition:gap .2s;}
+.pr-lnk:hover{gap:.5rem;}
+
+/* TIPS */
+.tp-sec{background:var(--bg2);}
+.tp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem;}
+.tpc{display:flex;gap:1.2rem;align-items:flex-start;background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:1.4rem;transition:box-shadow .2s;}
+.tpc:hover{box-shadow:var(--shadow);}
+.tpn{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:var(--border);line-height:1;flex-shrink:0;width:36px;}
+.tpb h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.93rem;color:var(--ink);margin-bottom:.35rem;}
+.tpb p{font-size:.84rem;color:var(--ink3);line-height:1.7;}
+
+/* SURVEY */
+.sv-sec{background:linear-gradient(135deg,var(--teal-d) 0%,var(--teal) 100%);text-align:center;position:relative;overflow:hidden;}
+.sv-sec::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:28px 28px;}
+.sv-sec .s-in{position:relative;z-index:1;}
+.sv-sec h2{color:#fff;}
+.sv-sec .ac{color:var(--gold-m);}
+.sv-sec .s-desc{color:rgba(255,255,255,.7);margin:0 auto;}
+.sv-sec .s-tag{color:var(--gold-m);}
+.btn-w{background:#fff;color:var(--teal-d);border:none;padding:.9rem 2.2rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;margin-top:2rem;}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.2);}
+.sv-note{margin-top:.85rem;font-size:.8rem;color:rgba(255,255,255,.4);}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.45);padding:3rem 2.5rem;}
+.fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;}
+.fb .fl{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;color:#fff;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;}
+.fld{width:8px;height:8px;background:var(--teal);border-radius:50%;}
+.fb p{font-size:.82rem;line-height:1.75;}
+.fc h5{font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.55);margin-bottom:.85rem;}
+.fc a{display:block;font-size:.84rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:.5rem;transition:color .15s;}
+.fc a:hover{color:var(--teal-m);}
+.fb-bot{max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;color:rgba(255,255,255,.28);display:flex;justify-content:space-between;align-items:center;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .h-inner,.cl-lay,.rk-lay,.pr-grid{grid-template-columns:1fr;}
+  .h-right,.ri-list{display:none;}
+  .pb-grid,.tp-grid{grid-template-columns:1fr;}
+  .hw-grid{grid-template-columns:1fr 1fr;}
+  .fi{grid-template-columns:1fr 1fr;}
+  .nav-links,.nav-btn{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .hw-grid,.pr-grid{grid-template-columns:1fr;}
+  h1{font-size:2.2rem;}
+  .fi{grid-template-columns:1fr;}
+  .fb-bot{flex-direction:column;gap:.5rem;text-align:center;}
+}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.vis{opacity:1;transform:none;}
+
+/* ── VIDEO CLIP ANIMATIONS ── */
+@keyframes shimmer{
+  0%{background-position:200% center;}
+  100%{background-position:-200% center;}
+}
+@keyframes floatIcon{
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-8px) scale(1.08);}
+}
+@keyframes pulseDot{
+  0%,100%{box-shadow:0 0 0 0 rgba(15,122,133,.6);}
+  50%{box-shadow:0 0 0 8px rgba(15,122,133,0);}
+}
+@keyframes scanline{
+  0%{transform:translateY(-100%);}
+  100%{transform:translateY(400%);}
+}
+@keyframes fadeTag{
+  0%,100%{opacity:1;}50%{opacity:.35;}
+}
+@keyframes rotateBg{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+@keyframes clipCounter{
+  0%{content:'●●●';}33%{content:'●●○';}66%{content:'●○○';}100%{content:'○○○';}
+}
+
+/* clip-top ki animated background */
+.clip-top{position:relative;overflow:hidden;}
+.clip-top::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);
+  background-size:200% 100%;
+  animation:shimmer 5s linear infinite;
+  pointer-events:none;
+}
+
+/* scanline effect */
+.clip-top::before{
+  content:'';position:absolute;left:0;right:0;height:2px;
+  background:rgba(255,255,255,.18);
+  animation:scanline 5s linear infinite;
+  pointer-events:none;z-index:2;
+}
+
+/* play button pulse */
+.clip .play-btn{animation:pulseDot 2.5s ease infinite;}
+
+/* clip icon floats */
+.clip-icon{
+  font-size:2.4rem;
+  animation:floatIcon 5s ease-in-out infinite;
+  z-index:1;
+}
+
+/* duration badge */
+.clip-dur{
+  position:absolute;bottom:10px;right:12px;
+  background:rgba(0,0,0,.45);color:#fff;
+  font-size:.65rem;font-weight:700;
+  padding:.2rem .5rem;border-radius:4px;
+  letter-spacing:.5px;z-index:3;
+}
+
+/* LIVE badge */
+.clip-live{
+  position:absolute;top:10px;right:12px;
+  background:#e63946;color:#fff;
+  font-size:.6rem;font-weight:800;
+  padding:.18rem .5rem;border-radius:4px;
+  letter-spacing:1.5px;text-transform:uppercase;z-index:3;
+  display:flex;align-items:center;gap:.3rem;
+}
+.live-dot{
+  width:5px;height:5px;background:#fff;border-radius:50%;
+  animation:fadeTag 1.2s ease infinite;
+}
+
+/* progress bar at bottom of clip */
+.clip-prog{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(255,255,255,.2);z-index:3;
+}
+.clip-prog-fill{
+  height:100%;background:rgba(255,255,255,.75);
+  animation:progAnim 5s linear infinite;
+}
+@keyframes progAnim{
+  from{width:0%;}to{width:100%;}
+}
+
+/* stagger each card's animation timing */
+.hw-grid .clip:nth-child(1) .clip-prog-fill,
+.hw-grid .clip:nth-child(1) .clip-top::after,
+.hw-grid .clip:nth-child(1) .clip-top::before{animation-delay:0s;}
+
+.hw-grid .clip:nth-child(2) .clip-prog-fill,
+.hw-grid .clip:nth-child(2) .clip-top::after,
+.hw-grid .clip:nth-child(2) .clip-top::before{animation-delay:.8s;}
+
+.hw-grid .clip:nth-child(3) .clip-prog-fill,
+.hw-grid .clip:nth-child(3) .clip-top::after,
+.hw-grid .clip:nth-child(3) .clip-top::before{animation-delay:1.6s;}
+
+.hw-grid .clip:nth-child(4) .clip-prog-fill,
+.hw-grid .clip:nth-child(4) .clip-top::after,
+.hw-grid .clip:nth-child(4) .clip-top::before{animation-delay:2.4s;}
+
+.hw-grid .clip:nth-child(5) .clip-prog-fill,
+.hw-grid .clip:nth-child(5) .clip-top::after,
+.hw-grid .clip:nth-child(5) .clip-top::before{animation-delay:3.2s;}
+
+.hw-grid .clip:nth-child(6) .clip-prog-fill,
+.hw-grid .clip:nth-child(6) .clip-top::after,
+.hw-grid .clip:nth-child(6) .clip-top::before{animation-delay:4s;}
+
+/* ── NEW: QUICK FACT TICKER ── */
+.ticker-wrap{
+  background:var(--teal-d);overflow:hidden;padding:.5rem 0;
+  border-bottom:2px solid var(--teal);
+}
+.ticker-inner{
+  display:flex;gap:0;width:max-content;
+  animation:tickerMove 28s linear infinite;
+}
+@keyframes tickerMove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-item{
+  white-space:nowrap;padding:0 3rem;
+  color:rgba(255,255,255,.9);font-size:.78rem;font-weight:600;letter-spacing:.3px;
+}
+.ticker-item span{color:var(--gold-m);margin-right:.5rem;}
+
+/* ── NEW: DARK MODE TOGGLE ── */
+.dm-toggle{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--ink);color:#fff;border:none;
+  font-size:1.1rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s;
+}
+.dm-toggle:hover{transform:scale(1.1);}
+body.dark{
+  --bg:#0f0f0e;--bg2:#181714;--bg3:#1e1c18;
+  --ink:#f0ede8;--ink2:#c8c2b8;--ink3:#948d83;
+  --border:#2e2b25;
+  --shadow:0 4px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.6);
+}
+body.dark .clip,body.dark .pb-card,body.dark .cl-w,body.dark .tpc,body.dark .prc,body.dark .rk-w{
+  background:var(--bg2);
+}
+body.dark nav{background:rgba(15,15,14,.92);}
+body.dark .mo-box,.dark .modal-box{background:var(--bg2) !important;}
+
+/* ── NEW: SCROLL TO TOP ── */
+.stt{
+  position:fixed;bottom:4.5rem;right:1.5rem;z-index:300;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--teal);color:#fff;border:none;
+  font-size:1rem;cursor:pointer;
+  box-shadow:0 4px 16px rgba(15,122,133,.4);
+  opacity:0;transform:translateY(10px);
+  transition:opacity .3s,transform .3s;
+}
+.stt.show{opacity:1;transform:translateY(0);}
+.stt:hover{background:var(--teal-d);}
+
+/* ── READING PROGRESS BAR ── */
+.read-prog{position:fixed;top:60px;left:0;right:0;height:3px;background:transparent;z-index:199;}
+.read-prog-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .1s linear;}
+
+/* ── TOAST NOTIFICATION ── */
+.toast{
+  position:fixed;bottom:6rem;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--ink);color:#fff;padding:.7rem 1.4rem;border-radius:10px;
+  font-size:.83rem;font-weight:600;box-shadow:0 8px 28px rgba(0,0,0,.25);
+  z-index:400;transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  display:flex;align-items:center;gap:.5rem;pointer-events:none;white-space:nowrap;
+}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ── AI QUIZ SECTION ── */
+.qz-sec{background:var(--bg3);}
+.qz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+@media(max-width:700px){.qz-grid{grid-template-columns:1fr;}}
+.qcard{background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.6rem;box-shadow:var(--shadow);transition:box-shadow .2s;}
+body.dark .qcard{background:var(--bg2);}
+.qcard:hover{box-shadow:var(--shadow-lg);}
+.qcard h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:1rem;line-height:1.4;}
+.qopt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:.55rem .9rem;font-family:'Outfit',sans-serif;font-size:.83rem;color:var(--ink);cursor:pointer;margin-bottom:.5rem;transition:all .18s;}
+.qopt:hover:not(:disabled){border-color:var(--teal);background:var(--teal-l);color:var(--teal-d);}
+.qopt.correct{background:var(--green-l);border-color:var(--green);color:var(--green);font-weight:600;}
+.qopt.wrong{background:var(--red-l);border-color:var(--red);color:var(--red);font-weight:600;}
+.qopt:disabled{cursor:default;}
+.qfb{font-size:.78rem;font-weight:600;margin-top:.5rem;min-height:1rem;}
+.qfb.ok{color:var(--green);}
+.qfb.no{color:var(--red);}
+.qz-score{display:none;margin-top:2rem;background:var(--teal);color:#fff;border-radius:14px;padding:1.4rem 2rem;text-align:center;}
+.qz-score h3{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;}
+.qz-score p{font-size:.9rem;opacity:.85;margin-top:.3rem;}
+.qz-retry{background:#fff;color:var(--teal-d);border:none;padding:.6rem 1.5rem;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:700;cursor:pointer;margin-top:1rem;font-size:.88rem;transition:transform .15s;}
+.qz-retry:hover{transform:scale(1.04);}
+</style>
+</head>
+<body>
+<div class="read-prog"><div class="read-prog-fill" id="rpFill"></div></div>
+<div class="toast" id="toastMsg"><span id="toastIcon">✓</span><span id="toastTxt"></span></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><div class="ndot"></div>EthicAI</div>
+  <ul class="nav-links">
+    <li><a href="#howto">How To Use AI</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+    <li><a href="#risk">Risk Tool</a></li>
+    <li><a href="#principles">Standards</a></li>
+    <li><a href="#tips">Safe Usage</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSePWAvUbErry8Bj_LPgMpCMg9-bij0M2xTYM6pN_MonDM6Jbw/viewform?usp=header" target="_blank" class="nav-btn">Take the Survey →</a>
+  <div class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mob-menu" id="mm">
+  <a href="#howto" onclick="document.getElementById('mm').classList.remove('open')">How To Use AI</a>
+  <a href="#checklist" onclick="document.getElementById('mm').classList.remove('open')">Pre-Use Checklist</a>
+  <a href="#risk" onclick="document.getElementById('mm').classList.remove('open')">Risk Assessment</a>
+  <a href="#principles" onclick="document.getElementById('mm').classList.remove('open')">Standards</a>
+  <a href="#tips" onclick="document.getElementById('mm').classList.remove('open')">Safe Usage</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSePWAvUbErry8Bj_LPgMpCMg9-bij0M2xTYM6pN_MonDM6Jbw/viewform?usp=header" target="_blank">Take the Survey →</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap" style="margin-top:60px;">
+  <div class="ticker-inner">
+    <div class="ticker-item"><span>⚠️</span>60%+ students use AI without disclosure — Stanford 2023</div>
+    <div class="ticker-item"><span>🔒</span>Never share your CNIC or Student ID with any AI platform</div>
+    <div class="ticker-item"><span>📜</span>Pakistan PDPB 2023 — your data rights are now protected by law</div>
+    <div class="ticker-item"><span>🤖</span>AI hallucinates — always verify facts from original peer-reviewed sources</div>
+    <div class="ticker-item"><span>🛡️</span>IEEE, ACM & UNESCO all require ethical AI use in academic settings</div>
+    <div class="ticker-item"><span>📋</span>Disclose AI-generated content in all academic submissions — no exceptions</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span>⚠️</span>60%+ students use AI without disclosure — Stanford 2023</div>
+    <div class="ticker-item"><span>🔒</span>Never share your CNIC or Student ID with any AI platform</div>
+    <div class="ticker-item"><span>📜</span>Pakistan PDPB 2023 — your data rights are now protected by law</div>
+    <div class="ticker-item"><span>🤖</span>AI hallucinates — always verify facts from original peer-reviewed sources</div>
+    <div class="ticker-item"><span>🛡️</span>IEEE, ACM & UNESCO all require ethical AI use in academic settings</div>
+    <div class="ticker-item"><span>📋</span>Disclose AI-generated content in all academic submissions — no exceptions</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="h-mesh"></div><div class="h-pat"></div>
+  <div class="h-inner">
+    <div>
+      <div class="h-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="var(--teal)"><circle cx="6" cy="6" r="6"/></svg>
+        AI &amp; Cybersecurity Awareness
+      </div>
+      <h1>Use AI <span class="ac">Ethically.</span><br>Stay Secure.</h1>
+      <p class="h-desc">A student-focused awareness hub for responsible AI usage, digital privacy, and academic integrity — grounded in ACM, IEEE &amp; UNESCO standards.</p>
+      <div class="h-acts">
+        <a href="#howto" class="btn-p">Explore the Guide →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSePWAvUbErry8Bj_LPgMpCMg9-bij0M2xTYM6pN_MonDM6Jbw/viewform?usp=header" target="_blank" class="btn-g">Take the Survey</a>
+      </div>
+    </div>
+    <div class="h-right">
+      <div class="hcard"><div class="hc-ic it">⚠️</div><div><div class="hc-num">60%+</div><div class="hc-lbl">Students use AI without proper disclosure (Stanford, 2023)</div></div></div>
+      <div class="hcard"><div class="hc-ic ig">🔐</div><div><div class="hc-num">Millions</div><div class="hc-lbl">Sensitive inputs shared with AI platforms daily worldwide</div></div></div>
+      <div class="hcard"><div class="hc-ic in">📋</div><div><div class="hc-num">0</div><div class="hc-lbl">Formal AI ethics frameworks at most South Asian universities</div></div></div>
+      <div class="hcard"><div class="hc-ic it">📜</div><div><div class="hc-num">2023</div><div class="hc-lbl">Pakistan's PDPB — your data rights now protected by law</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="hw-sec" id="howto">
+  <div class="s-in">
+    <span class="s-tag">How To Use AI Responsibly</span>
+    <h2>A Step-by-Step <span class="ac">Guide</span></h2>
+    <p class="s-desc">Before you open ChatGPT, Gemini, Copilot, or any AI tool — follow these steps. Click any card to learn more.</p>
+    <div class="hw-grid">
+      <div class="clip reveal" onclick="openVid('2ePf9rue1Ao','AI Basics (Animated)','mo1')"><div class="clip-top g1"><div class="clip-sn">01</div><div class="clip-icon">🤖</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>GUIDE</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Understand What AI Can &amp; Cannot Do</h4><p>Learn AI's real limits before relying on it for assignments, research, or decisions.</p></div></div>
+      <div class="clip reveal" onclick="openVid('xoVJKj8lcNQ','AI Risks & Dangers (Animated)','mo2')"><div class="clip-top g2"><div class="clip-sn">02</div><div class="clip-icon">🔐</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>PRIVACY</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Check What Data You're Sharing</h4><p>Never input personal IDs, exam content, or institutional data into any AI platform.</p></div></div>
+      <div class="clip reveal" onclick="openVid('Y2Y96cFQdL8','Data Privacy Awareness (Animated)','mo3')"><div class="clip-top g3"><div class="clip-sn">03</div><div class="clip-icon">🔍</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>VERIFY</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Evaluate AI Output Critically</h4><p>AI hallucinates. Always verify facts, statistics, and citations from original sources.</p></div></div>
+      <div class="clip reveal" onclick="openVid('9Xg2x3k5vCw','AI Ethics Explained (Animation)','mo4')"><div class="clip-top g4"><div class="clip-sn">04</div><div class="clip-icon">📝</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>CITE</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Disclose &amp; Cite AI Use Properly</h4><p>Academic integrity requires honest disclosure of all AI-generated content in submissions.</p></div></div>
+      <div class="clip reveal" onclick="openVid('dItUGF8GdTw','Critical Thinking (Animated)','mo5')"><div class="clip-top g5"><div class="clip-sn">05</div><div class="clip-icon">📄</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>POLICY</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Read the Platform's Privacy Policy</h4><p>Know the data retention and sharing terms before submitting any information to an AI.</p></div></div>
+      <div class="clip reveal" onclick="openVid('ad79nYk2keg','Short Animated AI Explanation (Quick)','mo6')"><div class="clip-top g6"><div class="clip-sn">06</div><div class="clip-icon">🧠</div><div class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="clip-dur">▶ YouTube</div><div class="clip-live"><div class="live-dot"></div>THINK</div><div class="clip-prog"><div class="clip-prog-fill"></div></div></div><div class="clip-bd"><h4>Keep Your Own Thinking Central</h4><p>AI supports your work — it doesn't replace your judgment, creativity, or voice.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO PREVIEW MODAL -->
+<div class="mo" id="vidMo" onclick="closeVid(event)">
+  <div id="vidBox" style="background:#fff;border-radius:20px;width:min(1000px,96vw);overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);animation:mi .3s ease;position:relative;">
+    <!-- Header bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:.8rem 1.2rem;background:#1a1a18;">
+      <div style="display:flex;align-items:center;gap:.6rem;">
+        <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="14" rx="3" fill="#FF0000"/><path d="M8 10V4l5 3-5 3z" fill="#fff"/></svg>
+        <span id="vidTitle" style="font-family:'Syne',sans-serif;font-weight:700;font-size:.88rem;color:#fff;"></span>
+      </div>
+      <button onclick="closeVidBtn()" style="background:rgba(255,255,255,.1);border:none;color:#aaa;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:.85rem;">✕</button>
+    </div>
+    <!-- SIDE BY SIDE BODY -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;min-height:340px;">
+      <!-- LEFT: Thumbnail + Watch button -->
+      <div style="background:#0f0f0e;display:flex;flex-direction:column;">
+        <div id="vidThumb" style="position:relative;cursor:pointer;overflow:hidden;flex:1;" onclick="goToYT()">
+          <img id="vidImg" src="" alt="Video thumbnail" style="width:100%;height:100%;display:block;object-fit:cover;min-height:220px;">
+          <div style="position:absolute;inset:0;background:rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:background .2s;" onmouseover="this.style.background='rgba(0,0,0,.08)'" onmouseout="this.style.background='rgba(0,0,0,.3)'">
+            <div style="width:64px;height:64px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(255,0,0,.5);">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:8px;right:8px;background:rgba(0,0,0,.75);color:#fff;font-size:.65rem;font-weight:700;padding:.25rem .6rem;border-radius:5px;">▶ CLICK TO WATCH</div>
+        </div>
+        <!-- Watch on YouTube button -->
+        <div style="padding:.8rem 1rem;background:#111;display:flex;align-items:center;justify-content:center;">
+          <button onclick="goToYT()" style="background:#FF0000;color:#fff;border:none;padding:.6rem 1.3rem;border-radius:7px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;display:flex;align-items:center;gap:.45rem;transition:background .2s;width:100%;justify-content:center;" onmouseover="this.style.background='#cc0000'" onmouseout="this.style.background='#FF0000'">
+            <svg width="16" height="11" viewBox="0 0 20 14" fill="none"><rect width="20" height="14" rx="3" fill="#fff"/><path d="M8 10V4l5 3-5 3z" fill="#FF0000"/></svg>
+            Watch on YouTube
+          </button>
+        </div>
+      </div>
+      <!-- RIGHT: Step info -->
+      <div id="vidStepInfo" style="background:#fff;padding:1.2rem 1.3rem;overflow-y:auto;max-height:400px;border-left:1px solid #e8e3dc;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div class="mo" id="mo1" onclick="closeMo(event,'mo1')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 1 — Understand What AI Can &amp; Cannot Do</h3><button class="mo-x" onclick="document.getElementById('mo1').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g1"><div class="bi">🤖</div><p style="color:var(--teal-d);">AI tools generate text by predicting patterns — they do not "know" facts, they cannot reason, and they can be confidently wrong.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>AI is a language model</strong> — it predicts the most likely next word, not the most accurate one. It does not understand your question.</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>AI hallucinations are real</strong> — it invents citations, statistics, and facts that sound real but are fabricated. Always verify from original sources.</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>Use it to explore, not conclude</strong> — treat AI output as a starting point for your own research, never a final authoritative answer.</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>Your critical thinking is irreplaceable</strong> — the ability to evaluate AI output is itself a core professional skill employers value.</div></div>
+  </div>
+</div></div>
+
+<div class="mo" id="mo2" onclick="closeMo(event,'mo2')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 2 — Check What Data You're Sharing</h3><button class="mo-x" onclick="document.getElementById('mo2').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g2"><div class="bi">🔐</div><p style="color:#7a4e08;">Every query you send may be stored and used to train future AI models. Be deliberate about what you share.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>Never share personal identifiers</strong> — CNIC, student ID, passwords, phone numbers, or email addresses.</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>Avoid inputting exam questions</strong> — this may violate academic integrity policy and leaks confidential institutional content externally.</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>Avoid institutional data</strong> — internal documents, research files, or colleague information should never be shared with commercial AI tools.</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>Pakistan's PDPB 2023</strong> gives you rights over your data — but only if you exercise them consciously by checking platform data policies.</div></div>
+  </div>
+</div></div>
+
+<div class="mo" id="mo3" onclick="closeMo(event,'mo3')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 3 — Evaluate AI Output Critically</h3><button class="mo-x" onclick="document.getElementById('mo3').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g3"><div class="bi">🔍</div><p style="color:#166534;">AI is a first draft, not a final source. Treat every AI response as unverified until you personally check it.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>Verify all facts</strong> using Google Scholar, IEEE Xplore, or your library database before citing them in any work.</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>Check all references</strong> — AI often generates plausible but non-existent citations. Confirm each one actually exists before use.</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>Apply your own judgment</strong> — does the AI's answer make logical sense? Does it align with what your course material and instructors say?</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>Add your own analysis</strong> — using AI as a springboard and then contributing original critical thought is genuinely ethical and valuable usage.</div></div>
+  </div>
+</div></div>
+
+<div class="mo" id="mo4" onclick="closeMo(event,'mo4')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 4 — Disclose &amp; Cite AI Use Properly</h3><button class="mo-x" onclick="document.getElementById('mo4').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g4"><div class="bi">📝</div><p style="color:var(--red);">Submitting AI-generated content without disclosure is academic misconduct — even if completely unintentional.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>Check your institution's AI policy</strong> — what level of AI assistance is permitted in your specific course or assignment?</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>Disclose in an acknowledgment note</strong> — e.g., "AI tools were used to assist with drafting; all content was reviewed and edited by the author."</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>Cite using APA 7 format:</strong> OpenAI. (2024). ChatGPT (Version X) [Large language model]. https://chat.openai.com/</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>ACM Principle 1.3</strong> mandates honesty and trustworthiness — disclosure is a professional responsibility, not merely a course rule.</div></div>
+  </div>
+</div></div>
+
+<div class="mo" id="mo5" onclick="closeMo(event,'mo5')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 5 — Read the Platform's Privacy Policy</h3><button class="mo-x" onclick="document.getElementById('mo5').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g5"><div class="bi">📄</div><p style="color:#4c1d95;">Each AI platform has different data policies. Some store your conversations indefinitely. Others use them to train future models.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>OpenAI / ChatGPT</strong> — by default conversations may be used to improve models. Opt out via Settings → Data Controls → Improve the model.</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>Google Gemini</strong> — conversations reviewed by humans by default. Review your Google account Activity Controls to limit this.</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>GitHub Copilot</strong> — code may be based on public repositories. Sensitive institutional or proprietary code should never be used with Copilot.</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>GDPR &amp; PDPB 2023</strong> grant rights to request deletion of personal data held by third parties — including AI companies. Know your rights.</div></div>
+  </div>
+</div></div>
+
+<div class="mo" id="mo6" onclick="closeMo(event,'mo6')"><div class="modal-box" style="background:#fff;border-radius:20px;width:min(660px,92vw);overflow:hidden;box-shadow:0 24px 80px rgba(28,26,21,.3);animation:mi .3s ease;">
+  <div class="mo-head"><h3>Step 6 — Keep Your Own Thinking Central</h3><button class="mo-x" onclick="document.getElementById('mo6').classList.remove('open')">✕</button></div>
+  <div class="mo-vis g6"><div class="bi">🧠</div><p style="color:#713f12;">Education is about developing your thinking. AI should amplify your capabilities — never replace them or your voice.</p></div>
+  <div class="mo-body">
+    <div class="mstep"><div class="msn">1</div><div class="mst"><strong>Form your own opinion first</strong> — before asking AI, spend 5 minutes writing what you already know and think about the topic.</div></div>
+    <div class="mstep"><div class="msn">2</div><div class="mst"><strong>Use AI to challenge your ideas</strong> — ask it to argue the opposite side, spot weaknesses in your argument, or suggest additional sources.</div></div>
+    <div class="mstep"><div class="msn">3</div><div class="mst"><strong>Rewrite AI outputs in your own words</strong> — even using AI as a starting point, the final work must reflect your voice, judgment, and understanding.</div></div>
+    <div class="mstep"><div class="msn">4</div><div class="mst"><strong>IEEE's professionalism principle</strong> states AI is a tool to augment human competence — not a replacement for professional or academic judgment.</div></div>
+  </div>
+</div></div>
+
+<!-- PROBLEM -->
+<section class="pb-sec" id="problem">
+  <div class="s-in">
+    <span class="s-tag">Understanding the Challenge</span>
+    <h2>Two Gaps <span class="ac">We Must Close</span></h2>
+    <p class="s-desc">The rapid rise of generative AI has created two urgent, largely unaddressed challenges for students and institutions alike.</p>
+    <div class="pb-grid">
+      <div class="pb-card pbc1 reveal">
+        <div class="pb-icon">🎓</div>
+        <h3>The Ethical Gap — Academic Integrity</h3>
+        <p>Students frequently submit AI-generated content without disclosure or citation, leading to unintentional plagiarism and a measurable decline in critical thinking. A 2023 Stanford survey found over 60% of students used AI for assignments without understanding institutional disclosure policies.</p>
+        <span class="pb-pill pp-t">ACM Principle 1.3 — Be Honest &amp; Trustworthy</span>
+      </div>
+      <div class="pb-card pbc2 reveal">
+        <div class="pb-icon">🛡️</div>
+        <h3>The Security Gap — Data Privacy</h3>
+        <p>Students routinely share personal data, exam questions, and institutional information with commercial AI platforms governed by third-party retention policies most have never reviewed. Pakistan's PDPB 2023 and GDPR both classify this as a significant and addressable privacy risk.</p>
+        <span class="pb-pill pp-g">IEEE Article 1 — Safety, Health &amp; Welfare</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="cl-sec" id="checklist">
+  <div class="s-in">
+    <span class="s-tag">Pre-Use Safety Checklist</span>
+    <h2>Before You Hit <span class="ac">Send</span></h2>
+    <p class="s-desc">Run through this quick checklist before every AI session. Most mistakes happen through unchecked habit, not malicious intent.</p>
+    <div class="cl-lay">
+      <div class="cl-info">
+        <h3>Why a pre-use checklist?</h3>
+        <p>Most data privacy breaches and academic integrity incidents occur not through wrongdoing — but through unchecked routine. A 30-second check before each AI interaction can prevent serious academic and professional consequences that are very difficult to undo.</p>
+        <div class="ptags">
+          <span class="ptag pt">ACM 1.3 — Honesty</span>
+          <span class="ptag pt">ACM 1.5 — IP Rights</span>
+          <span class="ptag pt">ACM 1.6 — Privacy</span>
+          <span class="ptag pg">IEEE Article 1</span>
+          <span class="ptag pn">UNESCO AI Ethics</span>
+        </div>
+        <p style="margin-top:1.25rem;font-size:.84rem;color:var(--ink3);line-height:1.7;">Click each item to mark it complete. The progress bar tracks your compliance. Hit reset to clear for a new session.</p>
+        <div style="margin-top:1.4rem;padding:1rem 1.2rem;background:var(--teal-l);border:1px solid var(--teal-m);border-radius:10px;">
+          <p style="font-size:.82rem;color:var(--teal-d);line-height:1.65;"><strong>📎 Linked standard:</strong> ACM Principle 1.6 requires respecting the privacy rights of others. Read the full code at <a href="https://www.acm.org/code-of-ethics" target="_blank" style="color:var(--teal);font-weight:600;">acm.org/code-of-ethics →</a></p>
+        </div>
+      </div>
+      <div class="cl-w">
+        <div class="cl-wh">
+          <h4>🤖 AI Pre-Use Safety Checklist</h4>
+          <button class="cl-rst" onclick="rstChk()">Reset ↺</button>
+        </div>
+        <div id="chkList">
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I am NOT sharing any personal ID, CNIC, phone number, or passwords.</div><span class="rb rh">HIGH</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I am NOT inputting exam questions, graded assignments, or institutional content.</div><span class="rb rh">HIGH</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I understand this platform's data retention policy before I use it.</div><span class="rb rm">MED</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">If submitting AI-assisted work, I will properly disclose and cite it.</div><span class="rb rh">HIGH</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I will critically verify all AI output before using it in any submission.</div><span class="rb rm">MED</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I am using AI as a support tool, not as a substitute for my own thinking.</div><span class="rb rl">LOW</span></div>
+          <div class="chi" onclick="togChk(this)"><div class="chb"></div><div class="cht">I have not included anyone else's personal data or confidential information.</div><span class="rb rh">HIGH</span></div>
+        </div>
+        <div class="pw">
+          <div class="pm"><span>Safety compliance</span><span id="ptxt">0 / 7 items</span></div>
+          <div class="pb-bg"><div class="pb-fill" id="pfill"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK -->
+<section class="rk-sec" id="risk">
+  <div class="s-in">
+    <span class="s-tag">Data Sensitivity Classifier</span>
+    <h2>What's Your <span class="ac">Risk Level?</span></h2>
+    <p class="s-desc">Answer 3 quick questions to find out whether your intended AI input is safe to share before you type it.</p>
+    <div class="rk-lay">
+      <div class="rk-w reveal">
+        <h3>🔍 Quick Risk Assessment</h3>
+        <p>Tell us what you're planning to input into an AI platform right now.</p>
+        <div class="rq"><span class="rql">1. What type of information will you input?</span>
+          <div class="rqo" id="rq1">
+            <button class="ro" onclick="pOpt(this,'rq1','high','sr')">Personal ID / contact</button>
+            <button class="ro" onclick="pOpt(this,'rq1','high','sr')">Exam / assignment</button>
+            <button class="ro" onclick="pOpt(this,'rq1','med','sg')">Course notes</button>
+            <button class="ro" onclick="pOpt(this,'rq1','low','sn')">A general question</button>
+          </div>
+        </div>
+        <div class="rq"><span class="rql">2. Will this be submitted as academic work?</span>
+          <div class="rqo" id="rq2">
+            <button class="ro" onclick="pOpt(this,'rq2','high','sr')">Yes, fully AI-written</button>
+            <button class="ro" onclick="pOpt(this,'rq2','med','sg')">Partially, with my edits</button>
+            <button class="ro" onclick="pOpt(this,'rq2','low','sn')">No, just for learning</button>
+          </div>
+        </div>
+        <div class="rq"><span class="rql">3. Have you read this platform's privacy policy?</span>
+          <div class="rqo" id="rq3">
+            <button class="ro" onclick="pOpt(this,'rq3','high','sr')">No, never</button>
+            <button class="ro" onclick="pOpt(this,'rq3','med','sg')">Partially, not fully</button>
+            <button class="ro" onclick="pOpt(this,'rq3','low','sn')">Yes, I've reviewed it</button>
+          </div>
+        </div>
+        <button class="cb" onclick="calcR()">Assess My Risk →</button>
+        <div class="rr" id="rkRes">
+          <div class="rre" id="rre"></div>
+          <div class="rrt" id="rrt"></div>
+          <div class="rrd" id="rrd"></div>
+        </div>
+      </div>
+      <div class="ri-list">
+        <div class="ri reveal"><div class="ri-ic it">🔒</div><div><h4>What is PII (Personally Identifiable Information)?</h4><p>PII includes your name, CNIC, student ID, phone, location, or email. Any combination of data that identifies you must never be shared with AI platforms.</p></div></div>
+        <div class="ri reveal"><div class="ri-ic ig">📋</div><div><h4>What counts as academic misconduct?</h4><p>Submitting AI-generated content as your own work without disclosure is academic dishonesty under most institutional policies — even if unintentional. Always check your course AI policy.</p></div></div>
+        <div class="ri reveal"><div class="ri-ic in">🌍</div><div><h4>Your Rights Under Pakistan's PDPB 2023</h4><p>Pakistan's Personal Data Protection Bill gives citizens rights to access, correct, and request deletion of personal data held by third parties — including AI companies.</p></div></div>
+        <div class="ri reveal"><div class="ri-ic" style="background:var(--red-l);">⚡</div><div><h4>Data Retention Warning</h4><p>Many AI platforms retain conversation data for months or indefinitely unless you manually delete it. Check ChatGPT, Gemini, and other tools' settings pages regularly.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="pr-sec" id="principles">
+  <div class="s-in">
+    <span class="s-tag">International Professional Standards</span>
+    <h2>The Principles <span class="ac">Behind This Work</span></h2>
+    <p class="s-desc">Grounded in globally recognized ethical frameworks. Click any link to read the original standard in full.</p>
+    <div class="pr-grid">
+      <div class="prc pt reveal"><div class="pr-ic pit">🤝</div><div class="pr-src"><a href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of Ethics — Principle 1.3 ↗</a></div><h3>Be Honest &amp; Trustworthy</h3><p>Computing professionals must be transparent about AI use. Students must disclose AI-generated content in all academic submissions without exception.</p><a href="https://www.acm.org/code-of-ethics" target="_blank" class="pr-lnk">Read full ACM Code →</a></div>
+      <div class="prc pg reveal"><div class="pr-ic pig">📜</div><div class="pr-src"><a href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of Ethics — Principle 1.5 ↗</a></div><h3>Honor Intellectual Property</h3><p>AI-generated content involves complex ownership questions. Proper citation and attribution is required when AI contributes to any academic or professional work.</p><a href="https://www.acm.org/code-of-ethics" target="_blank" class="pr-lnk">Read ACM 1.5 →</a></div>
+      <div class="prc pt reveal"><div class="pr-ic pit">🔒</div><div class="pr-src"><a href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of Ethics — Principle 1.6 ↗</a></div><h3>Respect Privacy</h3><p>Sharing personal or institutional data with third-party AI systems constitutes a privacy violation under ACM standards and global data protection law.</p><a href="https://www.acm.org/code-of-ethics" target="_blank" class="pr-lnk">Read ACM 1.6 →</a></div>
+      <div class="prc pn reveal"><div class="pr-ic pin">🛡️</div><div class="pr-src"><a href="https://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank">IEEE Code of Ethics — Article 1 ↗</a></div><h3>Safety, Health &amp; Public Welfare</h3><p>IEEE engineers must prioritize the safety and welfare of the public — including protecting students' digital identities from cybersecurity threats.</p><a href="https://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank" class="pr-lnk">Read full IEEE Code →</a></div>
+      <div class="prc pt reveal"><div class="pr-ic pit">🧠</div><div class="pr-src"><a href="https://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank">IEEE — Professionalism Principle ↗</a></div><h3>Professional Judgment</h3><p>AI must augment human competence — not replace it. Academic and professional decisions require the judgment of a trained human, not an algorithm alone.</p><a href="https://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank" class="pr-lnk">Read IEEE Ethics →</a></div>
+      <div class="prc pn reveal"><div class="pr-ic pin">🌍</div><div class="pr-src"><a href="https://unesdoc.unesco.org/ark:/48223/pf0000381137" target="_blank">UNESCO Recommendation on AI Ethics (2021) ↗</a></div><h3>Ethics of AI in Education</h3><p>UNESCO calls for ethical frameworks in academic AI adoption that protect human rights, dignity, and institutional integrity across all educational contexts worldwide.</p><a href="https://unesdoc.unesco.org/ark:/48223/pf0000381137" target="_blank" class="pr-lnk">Read UNESCO Rec. →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SURVEY -->
+<section class="sv-sec" id="survey">
+  <div class="s-in">
+    <span class="s-tag">Research Survey</span>
+    <h2>Help Us <span class="ac">Map the Gap</span></h2>
+    <p class="s-desc">We're conducting a research survey on AI ethics, cybersecurity awareness, and academic integrity. Your anonymous responses directly shape our policy recommendations. All students are welcome to participate and contribute.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSePWAvUbErry8Bj_LPgMpCMg9-bij0M2xTYM6pN_MonDM6Jbw/viewform?usp=header" target="_blank" class="btn-w">Fill the Survey — 5 Minutes →</a>
+    <p class="sv-note">Anonymous · No personal data collected</p>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tp-sec" id="tips">
+  <div class="s-in">
+    <span class="s-tag">Secure AI Usage Guide</span>
+    <h2>8 Rules for <span class="ac">Safe AI Use</span></h2>
+    <p class="s-desc">Evidence-based guidelines every student should follow when interacting with any AI platform.</p>
+    <div class="tp-grid">
+      <div class="tpc reveal"><div class="tpn">01</div><div class="tpb"><h4>Never Share Identifiable Information</h4><p>Do not input your student ID, CNIC, phone number, or email into any AI platform. These systems retain data under terms most users have never reviewed.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">02</div><div class="tpb"><h4>Always Disclose AI Use in Submissions</h4><p>If you use AI to assist with academic work, cite it clearly. Most institutions require disclosure. Hiding AI use is a form of misconduct under ACM Principle 1.3.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">03</div><div class="tpb"><h4>Read the Privacy Policy First</h4><p>Before using any AI for sensitive tasks, check how inputs are stored and whether they're shared with third parties. OpenAI, Google, and others all differ significantly.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">04</div><div class="tpb"><h4>Verify All AI-Generated Content</h4><p>AI hallucinates — it produces confident-sounding but incorrect information. Verify all claims against peer-reviewed sources before any academic use.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">05</div><div class="tpb"><h4>Do Not Share Exam Content</h4><p>Entering exam or assignment questions into AI platforms may violate academic integrity policy and leaks confidential institutional content to external servers permanently.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">06</div><div class="tpb"><h4>Use AI to Learn, Not Replace Thinking</h4><p>AI is most valuable for exploring ideas and getting feedback — not for generating final submissions. Build your own analytical voice and judgment over time.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">07</div><div class="tpb"><h4>Be Cautious with Institutional Data</h4><p>Never share university credentials, internal documents, or research data with commercial AI. This may violate both institutional policy and Pakistan's PDPB 2023.</p></div></div>
+      <div class="tpc reveal"><div class="tpn">08</div><div class="tpb"><h4>Know Your Rights Under PDPB 2023</h4><p>Pakistan's Personal Data Protection Bill gives you rights over your data. AI platforms may not comply — know your rights and exercise them before sharing anything sensitive.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="qz-sec" id="quiz">
+  <div class="s-in">
+    <span class="s-tag">Test Your Knowledge</span>
+    <h2>Quick <span class="ac">AI Ethics Quiz</span></h2>
+    <p class="s-desc">4 questions — see how much you've learned about ethical AI use and digital privacy.</p>
+    <div class="qz-grid">
+
+      <div class="qcard reveal">
+        <h4>Q1. If AI generates a fact — what should you do?</h4>
+        <button class="qopt" onclick="ansQ(this,'q1',false)">Submit it directly — AI is always correct</button>
+        <button class="qopt" onclick="ansQ(this,'q1',true)">Verify it from a peer-reviewed source first</button>
+        <button class="qopt" onclick="ansQ(this,'q1',false)">Ask a friend to double-check</button>
+        <div class="qfb" id="q1fb"></div>
+      </div>
+
+      <div class="qcard reveal">
+        <h4>Q2. Which of these is SAFE to share with an AI platform?</h4>
+        <button class="qopt" onclick="ansQ(this,'q2',false)">Your CNIC number and Student ID</button>
+        <button class="qopt" onclick="ansQ(this,'q2',false)">Exam or assignment questions</button>
+        <button class="qopt" onclick="ansQ(this,'q2',true)">A general conceptual question</button>
+        <div class="qfb" id="q2fb"></div>
+      </div>
+
+      <div class="qcard reveal">
+        <h4>Q3. When submitting AI-assisted academic work, you must:</h4>
+        <button class="qopt" onclick="ansQ(this,'q3',false)">Stay silent — no one will find out</button>
+        <button class="qopt" onclick="ansQ(this,'q3',true)">Properly disclose and cite it (ACM Principle 1.3)</button>
+        <button class="qopt" onclick="ansQ(this,'q3',false)">Just paraphrase it slightly</button>
+        <div class="qfb" id="q3fb"></div>
+      </div>
+
+      <div class="qcard reveal">
+        <h4>Q4. Which law protects personal data rights in Pakistan?</h4>
+        <button class="qopt" onclick="ansQ(this,'q4',false)">Cyber Crime Act 2016 only</button>
+        <button class="qopt" onclick="ansQ(this,'q4',false)">There is no such law yet</button>
+        <button class="qopt" onclick="ansQ(this,'q4',true)">Personal Data Protection Bill (PDPB) 2023</button>
+        <div class="qfb" id="q4fb"></div>
+      </div>
+
+    </div>
+    <div class="qz-score" id="qzScore">
+      <h3 id="qzScoreTxt">🎉 4 / 4 Correct!</h3>
+      <p id="qzScoreMsg">Excellent! You are ready to use AI ethically.</p>
+      <button class="qz-retry" onclick="retryQuiz()">↺ Retry Quiz</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="fb">
+      <div class="fl"><div class="fld"></div>EthicAI</div>
+      <p>A research initiative by<br><strong style="color:rgba(255,255,255,.7);">Fatima Kalsoom, Kiran Siddique &amp; Saba Gull</strong><br><br>Capstone and Professional Practices Project<br>Department of Computer Science<br>Students of FJWU<br><br>Supervised by <strong style="color:rgba(255,255,255,.6);">Ma'am Maham</strong></p>
+    </div>
+    <div class="fc">
+      <h5>Standards &amp; Resources</h5>
+      <a href="https://www.acm.org/code-of-ethics" target="_blank">ACM Code of Ethics</a>
+      <a href="https://www.ieee.org/about/corporate/governance/p7-8.html" target="_blank">IEEE Code of Ethics</a>
+      <a href="https://unesdoc.unesco.org/ark:/48223/pf0000381137" target="_blank">UNESCO AI Ethics (2021)</a>
+      <a href="https://gdpr.eu/" target="_blank">GDPR Overview</a>
+      <a href="https://scholar.google.com/scholar?q=AI+ethics+higher+education" target="_blank">Research on Google Scholar</a>
+      <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=AI+ethics+education" target="_blank">IEEE Xplore — AI Ethics</a>
+    </div>
+    <div class="fc">
+      <h5>On This Site</h5>
+      <a href="#howto">How To Use AI</a>
+      <a href="#checklist">Pre-Use Checklist</a>
+      <a href="#risk">Risk Assessment Tool</a>
+      <a href="#principles">Ethical Standards</a>
+      <a href="#tips">8 Safe Usage Rules</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSePWAvUbErry8Bj_LPgMpCMg9-bij0M2xTYM6pN_MonDM6Jbw/viewform?usp=header" target="_blank">Take the Survey →</a>
+    </div>
+  </div>
+  <div class="fb-bot">
+    <span>Grounded in ACM, IEEE &amp; UNESCO Professional Ethics Standards</span>
+    <span>Students of FJWU</span>
+  </div>
+</footer>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dm-toggle" id="dmBtn" title="Toggle Dark Mode">🌙</button>
+<!-- SCROLL TO TOP -->
+<button class="stt" id="sttBtn" title="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// MODAL
+function openMo(id){document.getElementById(id).classList.add('open');}
+function closeMo(e,id){if(e.target===document.getElementById(id))document.getElementById(id).classList.remove('open');}
+
+// VIDEO MODAL — opens YouTube thumbnail preview, then new tab on click
+let currentYtUrl = '';
+function openVid(ytId, title, moId){
+  currentYtUrl = 'https://www.youtube.com/watch?v=' + ytId;
+  document.getElementById('vidTitle').textContent = title;
+  document.getElementById('vidImg').src = 'https://img.youtube.com/vi/' + ytId + '/maxresdefault.jpg';
+  // Copy step info (mo-head title + mo-vis + mo-body) into the panel
+  const srcMo = document.getElementById(moId);
+  const panel = document.getElementById('vidStepInfo');
+  if(srcMo){
+    const head = srcMo.querySelector('.mo-head h3');
+    const vis  = srcMo.querySelector('.mo-vis');
+    const body = srcMo.querySelector('.mo-body');
+    panel.innerHTML = '';
+    if(head){
+      const h = document.createElement('div');
+      h.style.cssText='font-family:Syne,sans-serif;font-weight:700;font-size:.95rem;color:#1c1a15;padding-bottom:.75rem;margin-bottom:.75rem;border-bottom:1px solid #e8e3dc;';
+      h.textContent = head.textContent;
+      panel.appendChild(h);
+    }
+    if(vis){const v=vis.cloneNode(true);v.style.cssText='display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center;padding:.9rem;border-radius:12px;margin-bottom:.75rem;font-size:.85rem;';panel.appendChild(v);}
+    if(body){const b=body.cloneNode(true);panel.appendChild(b);}
+  }
+  document.getElementById('vidMo').classList.add('open');
+}
+function goToYT(){ window.open(currentYtUrl, '_blank'); }
+function closeVid(e){
+  if(e.target===document.getElementById('vidMo')) document.getElementById('vidMo').classList.remove('open');
+}
+function closeVidBtn(){ document.getElementById('vidMo').classList.remove('open'); }
+
+// CHECKLIST
+function togChk(el){el.classList.toggle('on');updProg();}
+function updProg(){
+  const a=document.querySelectorAll('.chi'),d=document.querySelectorAll('.chi.on').length;
+  document.getElementById('ptxt').textContent=d+' / '+a.length+' items';
+  document.getElementById('pfill').style.width=(d/a.length*100)+'%';
+}
+function rstChk(){document.querySelectorAll('.chi').forEach(i=>i.classList.remove('on'));updProg();}
+
+// RISK
+const rv={};
+function pOpt(btn,qId,lvl,cls){
+  document.querySelectorAll('#'+qId+' .ro').forEach(b=>{b.className='ro';});
+  btn.classList.add(cls);rv[qId]=lvl;
+}
+function calcR(){
+  if(Object.keys(rv).length<3){alert('Please answer all 3 questions first.');return;}
+  const v=Object.values(rv),h=v.filter(x=>x==='high').length,m=v.filter(x=>x==='med').length;
+  const el=document.getElementById('rkRes');
+  el.className='rr show';
+  if(h>=2){el.classList.add('high');document.getElementById('rre').textContent='🚨';document.getElementById('rrt').textContent='HIGH RISK — Do Not Proceed';document.getElementById('rrd').textContent='Your intended AI use involves serious privacy or academic integrity risks. Remove sensitive data, review your institution\'s AI policy, and consult your instructor before proceeding.';}
+  else if(h===1||m>=2){el.classList.add('med');document.getElementById('rre').textContent='⚠️';document.getElementById('rrt').textContent='MEDIUM RISK — Proceed with Caution';document.getElementById('rrd').textContent='Some risks exist in your intended interaction. Remove sensitive data, plan to properly cite any AI-generated content, and review the platform\'s privacy policy before continuing.';}
+  else{el.classList.add('low');document.getElementById('rre').textContent='✅';document.getElementById('rrt').textContent='LOW RISK — Safe to Proceed';document.getElementById('rrd').textContent='Your intended AI use appears relatively low-risk. Still verify all AI outputs before using them, and never share personally identifiable information with any AI platform.';}
+  el.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+// SCROLL REVEAL
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// READING PROGRESS BAR
+window.addEventListener('scroll',()=>{
+  const doc=document.documentElement,body=document.body;
+  const st=doc.scrollTop||body.scrollTop;
+  const sh=(doc.scrollHeight||body.scrollHeight)-doc.clientHeight;
+  document.getElementById('rpFill').style.width=(st/sh*100)+'%';
+  sttBtn.classList.toggle('show',st>400);
+});
+
+// TOAST
+let toastTimer;
+function showToast(icon,msg){
+  const t=document.getElementById('toastMsg');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastTxt').textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// QUIZ
+const qzAnswers={q1:false,q2:false,q3:false,q4:false};
+let qzDone=0;
+function ansQ(btn,qId,isCorrect){
+  const siblings=[...btn.parentElement.querySelectorAll('.qopt')];
+  siblings.forEach(b=>b.disabled=true);
+  const fb=document.getElementById(qId+'fb');
+  if(isCorrect){
+    btn.classList.add('correct');
+    fb.textContent='✅ Correct!';fb.className='qfb ok';
+    showToast('🎯','Correct! Well done!');
+    qzAnswers[qId]=true;
+  } else {
+    btn.classList.add('wrong');
+    const correct=siblings.find(b=>b.onclick.toString().includes('true'));
+    if(correct)correct.classList.add('correct');
+    fb.textContent='❌ Incorrect — see the correct answer highlighted in green';fb.className='qfb no';
+    showToast('❌','Incorrect — keep learning!');
+    qzAnswers[qId]=false;
+  }
+  qzDone++;
+  if(qzDone===4){
+    const score=Object.values(qzAnswers).filter(Boolean).length;
+    const sc=document.getElementById('qzScore');
+    sc.style.display='block';
+    document.getElementById('qzScoreTxt').textContent=(score===4?'🎉':'📊')+' '+score+' / 4 Correct!';
+    const msgs=['Keep studying — review the guide above!','Good effort! Review the tips again.','Almost perfect! One more read will do it.','Excellent! You are ready to use AI ethically.'];
+    document.getElementById('qzScoreMsg').textContent=msgs[score];
+    sc.scrollIntoView({behavior:'smooth',block:'nearest'});
+    if(score===4)showToast('🏆','Perfect score! Brilliant!');
+  }
+}
+function retryQuiz(){
+  document.querySelectorAll('.qopt').forEach(b=>{b.disabled=false;b.className='qopt';});
+  document.querySelectorAll('.qfb').forEach(f=>{f.textContent='';f.className='qfb';});
+  Object.keys(qzAnswers).forEach(k=>qzAnswers[k]=false);
+  qzDone=0;
+  document.getElementById('qzScore').style.display='none';
+  showToast('↺','Quiz has been reset!');
+}
+
+// DARK MODE
+const dmBtn=document.getElementById('dmBtn');
+dmBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  dmBtn.textContent=document.body.classList.contains('dark')?'☀️':'🌙';
+  showToast(document.body.classList.contains('dark')?'🌙':'☀️', document.body.classList.contains('dark')?'Dark mode on':'Light mode on');
+});
+</script>
+</body>
+</html>
